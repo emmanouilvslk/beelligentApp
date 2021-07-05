@@ -1,13 +1,22 @@
-import { StatusBar } from "expo-status-bar";
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useContext, useEffect, useState } from "react";
+import { Dimensions, StyleSheet, Text, View } from "react-native";
+import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
+import AppContext from "context/appContext";
 
 export default function App() {
+    const [windowHeight, setWindowHeight] = useState(Dimensions.get("window").height);
+    const [windowWidth, setWindowWidth] = useState(Dimensions.get("window").width);
+
     return (
-        <View style={styles.container}>
-            <Text>And now it begins!</Text>
-            <StatusBar style="auto" />
-        </View>
+        <SafeAreaProvider>
+            <SafeAreaView>
+                <AppContext.Provider value={{ windowHeight, windowWidth }}>
+                    <View>
+                        <Text>And now it begins!</Text>
+                    </View>
+                </AppContext.Provider>
+            </SafeAreaView>
+        </SafeAreaProvider>
     );
 }
 
