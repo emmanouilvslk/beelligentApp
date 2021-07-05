@@ -1,12 +1,33 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "jsx": "react-native",
-    "lib": ["dom", "esnext"],
-    "moduleResolution": "node",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "resolveJsonModule": true,
-    "strict": true
-  }
+    "compilerOptions": {
+        "allowJs": true,
+        "esModuleInterop": true,
+        "isolatedModules": true,
+        "target": "esnext",
+
+        "allowSyntheticDefaultImports": true,
+        "jsx": "react-native",
+        "lib": ["dom", "esnext"],
+        "moduleResolution": "node",
+        "noEmit": true,
+        "skipLibCheck": true,
+        "resolveJsonModule": true,
+        "strict": true,
+        "baseUrl": "./src",
+        "paths": {
+            "scenes/*": ["./scenes/*"],
+            "components/*": ["./components/*"],
+            "atoms/*": ["./components/atoms/*"],
+            "molecules/*": ["./components/molecules/*"],
+            "organisms/*": ["./components/organisms/*"],
+            "pages/*": ["./components/pages/*"],
+            "helpers/*": ["./helpers/*"],
+            "styles/*": ["./styles/*"],
+            "models/*": ["./models/*"],
+            "assets/*": ["./assets/*"],
+            "controllers/*": ["./controllers/*"],
+            "context/*": ["./context/*"]
+        }
+    },
+    "exclude": ["node_modules", "babel.config.js", "metro.config.js", "jest.config.js"]
 }
