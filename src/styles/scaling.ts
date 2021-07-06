@@ -19,3 +19,27 @@ export const verticalScale = (size: number) => {
     const scaledSize = (height / guidelineBaseHeight) * size;
     return scaledSize;
 };
+
+export const scaleFont = (size: number) => {
+    const scaledFont = (width / guidelineBaseWidth) * size;
+    return scaledFont;
+};
+
+function dimensions(top: number, right = top, bottom = top, left = right, property: string) {
+    let styles: any = {};
+
+    styles[`${property}Top`] = top;
+    styles[`${property}Right`] = right;
+    styles[`${property}Bottom`] = bottom;
+    styles[`${property}Left`] = left;
+
+    return styles;
+}
+
+export function margin(top: number, right: number, bottom: number, left: number) {
+    return dimensions(scale(top), scale(right), scale(bottom), scale(left), "margin");
+}
+
+export function padding(top: number, right: number, bottom: number, left: number) {
+    return dimensions(scale(top), scale(right), scale(bottom), scale(left), "padding");
+}
