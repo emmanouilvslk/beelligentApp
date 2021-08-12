@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Button, Text, View } from "react-native";
 import TextField from "components/atoms/TextField";
 import { useState } from "react";
@@ -21,8 +21,23 @@ const Home: React.FC<HomeProps> = ({}) => {
                 <Button
                     color={Colors.GREY_CONTENT_SECONDARY}
                     title="SEND "
-                    onPress={() => {
-                        console.log(value);
+                    onPress={async () => {
+                        await fetch("http://theater1.dyndns.org/measurement/send", {
+                            method: "post",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify({
+                                value: value,
+                            }),
+                        })
+                            .then((resp) => resp.toString())
+                            .then((data) => {
+                                () => console.log(data);
+                            })
+                            .catch((err) => {
+                                console.log(err);
+                            });
                     }}
                 ></Button>
             </View>
