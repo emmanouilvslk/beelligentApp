@@ -1,5 +1,6 @@
 //yellow
 export const YELLOW_LIGHT = "rgb(255,245,0)";
+export const YELLOW_SECONDARY = "rgb(254, 229, 37)";
 
 //gray
 export const GREY_CONTENT_PRIMARY = "rgb(112,112,112)";

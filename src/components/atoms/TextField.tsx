@@ -19,9 +19,9 @@ const textInputStyle = StyleSheet.create({
 type TextField = {
     defaultValue?: string;
     callback: (text: string) => void;
-    placeHolder: string;
+    placeHolder?: string;
     style?: object;
-    keyboardType?: "phone-pad";
+    keyboardType?: "phone-pad" | "numeric";
     multiline?: boolean;
 };
 
@@ -44,7 +44,7 @@ const TextField = (props: TextField) => {
             keyboardType={props.keyboardType}
             placeholderTextColor={Colors.GREY_CONTENT_SECONDARY}
             placeholder={props.placeHolder}
-            textAlignVertical="top"
+            textAlignVertical="center"
             blurOnSubmit={true}
             multiline={props.multiline ? true : false}
             onChangeText={(text) => {
